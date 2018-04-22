@@ -21,7 +21,7 @@ public class CameraTracker : MonoBehaviour {
 
         targetPosition = this.transform.position;
         if(autoMove)targetPosition.x += constantSpeed;
-        if (targetPosition.x - player.position.x < playerOffset)
+        if (this.transform.position.x - player.position.x < playerOffset)
         {
             targetPosition.x += (player.position.x - this.gameObject.transform.position.x)/2;
             tracking = true;
