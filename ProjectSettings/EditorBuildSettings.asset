@@ -6,5 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/scenes/KillPlane.unity
-    guid: 08d7640ad130f2844a178881f8ffc923
+    path: Assets/scenes/Start.unity
+    guid: e3afa0786b0a3214dadff4a70adbd97e
+  - enabled: 1
+    path: Assets/scenes/Game.unity
+    guid: bc850c7362f924b499d9b9561ca4e454

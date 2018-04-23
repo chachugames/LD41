@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Looper : MonoBehaviour {
     public GameObject player, mainCamera;
     private Vector3 playerInitialPos, cameraInitialPos;
-    public GameObject black, text;
+    public GameObject black, text, win;
     CanvasGroup cg;
     // Use this for initialization
     void Start () {
@@ -52,6 +52,13 @@ public class Looper : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
+            if(player.GetComponent<PickupTracker>().collected == player.GetComponent<PickupTracker>().total)
+            { 
+                win.SetActive(true);
+                player.SetActive(false);
+                mainCamera.GetComponent<CameraTracker>().autoMove = false;
+                return;
+            }
             black.SetActive(true);
             StartCoroutine(FadeInRoutine());
         }
