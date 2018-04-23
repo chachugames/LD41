@@ -17,14 +17,15 @@ public class Looper : MonoBehaviour {
 
     IEnumerator FadeInRoutine()
     {
+        player.GetComponent<PlayerController>().canMove = false;
+        mainCamera.GetComponent<CameraTracker>().autoMove = false;
         cg.alpha = 0;
         while (cg.alpha < 1)
         {
             cg.alpha += Time.deltaTime;
             yield return null;
         }
-        player.GetComponent<PlayerController>().canMove = false;
-        mainCamera.GetComponent<CameraTracker>().autoMove = false;
+        
         cg.interactable = true;
         yield return null;
     }
