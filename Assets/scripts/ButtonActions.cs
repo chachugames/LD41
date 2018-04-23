@@ -10,4 +10,16 @@ public class ButtonActions : MonoBehaviour {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1;
     }
+    public void Quit()
+    {
+        Application.Quit();
+    }
+    public void StartGame()
+    {
+        SceneManager.LoadScene("Game");
+    }
+    public void Menu()
+    {
+        SceneManager.LoadScene("Start");
+    }
 }
