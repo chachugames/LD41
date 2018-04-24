@@ -23,4 +23,8 @@ public class ButtonActions : MonoBehaviour {
     {
         SceneManager.LoadScene("Start");
     }
+    public void ToggleMute()
+    {
+        AudioListener.volume = AudioListener.volume == 1 ? 0 : 1;
+    }
 }
