@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
 	private Animator anim;
     public bool canMove = true;
+    public AudioSource jump;
     // Use this for initialization
     void Awake()
     {
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
+            jump.Play();
             rb.velocity = new Vector2(rb.velocity.x, jumpTakeOffSpeed);
 			anim.SetTrigger ("Jump");
         }

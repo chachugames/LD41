@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class PickupText : MonoBehaviour {
     public PickupTracker pickups;
     public Text text;
-	
 
-    private void OnEnable()
+    public bool type1;
+    private void Update()
     {
-        string report = "You have " + pickups.collected + " out of " + pickups.total + " Stars!";
+        string report = type1 ? pickups.collected + " / " + pickups.total + " Stars" : "You have " + pickups.collected + " out of " + pickups.total + " Stars!";
         text.text = report;
     }
 }

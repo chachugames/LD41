@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Looper : MonoBehaviour {
     public GameObject player, mainCamera;
     private Vector3 playerInitialPos, cameraInitialPos;
-    public GameObject black, text, win;
+    public GameObject black, text, win, killPlaneA, killPlaneB, normalCounter;
     CanvasGroup cg;
     // Use this for initialization
     void Start () {
@@ -19,6 +19,9 @@ public class Looper : MonoBehaviour {
     {
         player.GetComponent<PlayerController>().canMove = false;
         mainCamera.GetComponent<CameraTracker>().autoMove = false;
+        killPlaneA.SetActive(false);
+        killPlaneB.SetActive(false);
+        normalCounter.SetActive(false);
         cg.alpha = 0;
         while (cg.alpha < 1)
         {
@@ -43,6 +46,10 @@ public class Looper : MonoBehaviour {
         black.SetActive(false);
         player.GetComponent<PlayerController>().canMove = true;
         mainCamera.GetComponent<CameraTracker>().autoMove = true;
+        killPlaneA.SetActive(true);
+        killPlaneB.SetActive(true);
+        normalCounter.SetActive(true);
+
         yield return null;
     }
     public void loop()
@@ -54,7 +61,8 @@ public class Looper : MonoBehaviour {
         if (other.gameObject.tag == "Player")
         {
             if(player.GetComponent<PickupTracker>().collected == player.GetComponent<PickupTracker>().total)
-            { 
+            {
+                normalCounter.SetActive(false);
                 win.SetActive(true);
                 player.SetActive(false);
                 mainCamera.GetComponent<CameraTracker>().autoMove = false;
